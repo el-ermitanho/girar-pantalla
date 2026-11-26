@@ -18,6 +18,10 @@ $Atajo = "Ctrl+Alt+Win"
 # Si ← y → giran al revés de lo que esperas, cambia esto a $true.
 $InvertirLados = $false
 # ===================================================
+# Tus ajustes van en ajustes.ps1 (copia de ajustes.ejemplo.ps1). Ese archivo no está en git:
+# al actualizar con git pull no se pisa. Lo que pongas ahí reemplaza los valores de arriba.
+$misAjustes = Join-Path $PSScriptRoot "ajustes.ps1"
+if (Test-Path $misAjustes) { . $misAjustes }
 
 $ErrorActionPreference = "Stop"
 

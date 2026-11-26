@@ -27,7 +27,7 @@ Para quitarlo: clic derecho en el ícono → **Salir**, y doble clic en **`Desin
 
 ## Cambiar el atajo
 
-Abre `GirarPantalla.ps1` con el Bloc de notas y cambia la línea:
+Copia `ajustes.ejemplo.ps1` como **`ajustes.ps1`** (en la misma carpeta), ábrelo con el Bloc de notas y cambia la línea. Ese archivo es solo de tu PC: no está en git, así que al actualizar no se pierde.
 
 ```powershell
 $Atajo = "Ctrl+Alt+Win"
@@ -49,14 +49,15 @@ Guarda, sal de GirarPantalla (clic derecho → Salir) y ábrelo otra vez.
 |---|---|
 | `GirarPantalla.cs` | El programa (C#): gira la pantalla con `ChangeDisplaySettingsEx`, registra los atajos con `RegisterHotKey` y muestra el ícono. |
 | `assets/girar-pantalla.ico` | Ícono del arcano X · La Rueda de la Fortuna (bandeja y acceso directo). |
-| `GirarPantalla.ps1` | Ajustes (atajo) y arranque: compila el `.cs` en memoria con `Add-Type` y lo ejecuta. |
+| `ajustes.ejemplo.ps1` | Modelo de tus ajustes: cópialo como `ajustes.ps1` (no se sube a git). |
+| `GirarPantalla.ps1` | Valores por defecto y arranque: compila el `.cs` en memoria con `Add-Type` y lo ejecuta. |
 | `Probar.bat` | Lo abre con consola, para ver errores. |
 | `Instalar.bat` / `.ps1` | Acceso directo en la carpeta Inicio de Windows (`shell:startup`) y lo abre. |
 | `Desinstalar.bat` / `.ps1` | Quita ese acceso directo. |
 
 ## Si algo falla
 
-- **"Otra app ya usa…"**: ese atajo está tomado; cambia `$Atajo`.
+- **"Otra app ya usa…"**: ese atajo está tomado; cambia `$Atajo` en `ajustes.ps1`.
 - **"Esta pantalla no permite esa orientación"**: el controlador de video no deja girar; actualiza el controlador Intel desde Windows Update.
 - **Al iniciar Windows aparece un instante una ventana azul**: es PowerShell arrancando oculto; es normal.
 - **Ya está abierto**: solo puede haber uno; busca el ícono en la flecha **^** junto al reloj.
